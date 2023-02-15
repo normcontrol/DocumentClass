@@ -63,6 +63,7 @@ Methods
         Calculates the type of the first character of a paragraph
 
     """
+
     def __init__(self, text, indent, lineSpacing, fontName, textSize, nochangeFontName, nochangeTextSize,
                  alignment=None, mrgrg=None, mrglf=None, mrgtop=None, mrgbtm=None, bold=None, italics=None,
                  underlining=None, subText=None, superText=None, colorText="White",
@@ -163,6 +164,8 @@ Methods
         :return: The last character of a paragraph
 
         """
+        if len(text) <= 1:
+            return None
         if re.match(r'[A-Za-zА-Яа-я0-9()]', text[len(text) - 2]) is None:
             return text[len(text) - 2]
         else:
@@ -206,98 +209,111 @@ Methods
 
     @prevEl.setter
     def prevEl(self, prevEl):
-            self.__prevEl = prevEl
+        self.__prevEl = prevEl
+
     @property
     def curEl(self):
         return self.__curEl
 
     @curEl.setter
     def curEl(self, curEl):
-            self.__curEl = curEl
+        self.__curEl = curEl
+
     @property
     def nextEl(self):
         return self.__nextEl
 
     @nextEl.setter
     def fontName(self, nextEl):
-            self.__nextEl = nextEl
+        self.__nextEl = nextEl
+
     @property
     def text(self):
         return self.__text
 
     @text.setter
     def text(self, text):
-            self.__text= text
+        self.__text = text
+
     @property
     def keepLinesTogether(self):
         return self.__keepLinesTogether
 
     @keepLinesTogether.setter
     def keepLinesTogether(self, keepLinesTogether):
-            self.__keepLinesTogether = keepLinesTogether
+        self.__keepLinesTogether = keepLinesTogether
+
     @property
     def outlineLevel(self):
         return self.__outlineLevel
 
     @outlineLevel.setter
     def outlineLevel(self, outlineLevel):
-            self.__outlineLevel = outlineLevel
+        self.__outlineLevel = outlineLevel
+
     @property
     def noSpaceBetweenParagraphsOfSameStyle(self):
         return self.__noSpaceBetweenParagraphsOfSameStyle
 
     @noSpaceBetweenParagraphsOfSameStyle.setter
     def noSpaceBetweenParagraphsOfSameStyle(self, noSpaceBetweenParagraphsOfSameStyle):
-            self.__noSpaceBetweenParagraphsOfSameStyle = noSpaceBetweenParagraphsOfSameStyle
+        self.__noSpaceBetweenParagraphsOfSameStyle = noSpaceBetweenParagraphsOfSameStyle
+
     @property
     def keepWithNext(self):
         return self.__keepWithNext
 
     @keepWithNext.setter
     def keepWithNext(self, keepWithNext):
-            self.__keepWithNext = keepWithNext
+        self.__keepWithNext = keepWithNext
+
     @property
     def indent(self):
         return self.__indent
 
     @indent.setter
     def indent(self, indent):
-            self.__indent = indent
+        self.__indent = indent
+
     @property
     def mrgrg(self):
         return self.__mrgrg
 
     @mrgrg.setter
     def mrgrg(self, mrgrg):
-            self.__mrgrg = mrgrg
+        self.__mrgrg = mrgrg
+
     @property
     def mrglf(self):
         return self.__mrglf
 
     @mrglf.setter
     def mrglf(self, mrglf):
-            self.__mrglf = mrglf
+        self.__mrglf = mrglf
+
     @property
     def mrgtop(self):
         return self.__mrgtop
 
     @mrgtop.setter
     def mrgtop(self, mrgtop):
-            self.__mrgtop = mrgtop
+        self.__mrgtop = mrgtop
+
     @property
     def mrgbtm(self):
         return self.__mrgbtm
 
     @mrgbtm.setter
     def mrgbtm(self, mrgbtm):
-            self.__mrgbtm = mrgbtm
+        self.__mrgbtm = mrgbtm
+
     @property
     def fontName(self):
         return self.__fontName
 
     @fontName.setter
     def fontName(self, fontName):
-            self.__fontName= fontName
+        self.__fontName = fontName
 
     @property
     def colorText(self):
@@ -305,7 +321,7 @@ Methods
 
     @colorText.setter
     def colorText(self, colorText):
-            self.__colorText= colorText
+        self.__colorText = colorText
 
     @property
     def lineSpacing(self):
@@ -399,6 +415,7 @@ Methods
     @countSbl.setter
     def countSbl(self, countSbl):
         self.__countSbl = countSbl
+
     @property
     def lowercase(self):
         return self.__lowercase
@@ -406,6 +423,7 @@ Methods
     @lowercase.setter
     def lowercase(self, lowercase):
         self.__lowercase = lowercase
+
     @property
     def uppercase(self):
         return self.__uppercase
@@ -413,6 +431,7 @@ Methods
     @uppercase.setter
     def uppercase(self, uppercase):
         self.__uppercase = uppercase
+
     @property
     def lastSbl(self):
         return self.__lastSbl
@@ -420,6 +439,7 @@ Methods
     @lastSbl.setter
     def lastSbl(self, lastSbl):
         self.__lastSbl = lastSbl
+
     @property
     def firstkey(self):
         return self.__firstkey
@@ -427,6 +447,7 @@ Methods
     @firstkey.setter
     def firstkey(self, firstkey):
         self.__firstkey = firstkey
+
     @property
     def prevEl(self):
         return self.__prevEl
@@ -434,6 +455,7 @@ Methods
     @prevEl.setter
     def prevEl(self, prevEl):
         self.__prevEl = prevEl
+
     @property
     def curEl(self):
         return self.__curEl
@@ -441,6 +463,7 @@ Methods
     @curEl.setter
     def curEl(self, curEl):
         self.__curEl = curEl
+
     @property
     def nexEl(self):
         return self.__nexEl
