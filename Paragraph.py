@@ -1,4 +1,6 @@
 import re
+from EnumFill import EnumFill
+from typing import Union
 
 
 class Paragraph:
@@ -65,10 +67,45 @@ Methods
     """
 
     def __init__(self, text, indent, lineSpacing, fontName, textSize, nochangeFontName, nochangeTextSize,
-                 alignment=None, mrgrg=None, mrglf=None, mrgtop=None, mrgbtm=None, bold=None, italics=None,
-                 underlining=None, subText=None, superText=None, colorText="White",
+                 alignment=None, mrgrg=None, mrglf=None, mrgtop=None, mrgbtm=None, bold: Union[EnumFill, int] = None,
+                 italics: Union[EnumFill, int] = None,
+                 underlining: Union[EnumFill, int] = None, subText=None, superText=None, colorText="White",
                  keepLinesTogether=None, keepWithNext=None, outlineLevel=None,
                  noSpaceBetweenParagraphsOfSameStyle=None, pageBreakBefore=None):
+        """
+               Constructor for Paragraph.
+
+               Args:
+                   bold (Union[EnumFill, int]): An instance of EnumFill or int representing the value to set for bold.
+                   italics (Union[EnumFill, int]): An instance of EnumFill or int representing the value to set for italics.
+                   underlining (Union[EnumFill, int]): An instance of EnumFill or int representing the value to set for underlining.
+
+               Examples:
+               >>> para = Paragraph(
+                    text='Some text here/n',
+                    indent='1.5',
+                    lineSpacing='1',
+                    fontName='Time New Roman",
+                    textSize='12',
+                    nochangeFontName=True,
+                    nochangeTextSize=False,
+                    alignment=None,
+                    mrgrg=None,
+                    mrglf=None,
+                    mrgtop=None,
+                    mrgbtm=None,
+                    bold=None,
+                    italics=EnumFill(1),
+                    underlining=2,
+                    subText=None,
+                    superText=None,
+                    colorText="White",
+                    keepLinesTogether=None,
+                    keepWithNext=None,
+                    outlineLevel=None,
+                    noSpaceBetweenParagraphsOfSameStyle=None,
+                    pageBreakBefore=None)
+        """
         self.__text = text
         self.__countOfSpSbl = Paragraph.getCountOfSpSbl(text)
         self.__countSbl = Paragraph.getCountSbl(text)
@@ -87,9 +124,9 @@ Methods
         self.__mrgtop = mrgtop
         self.__mrgbtm = mrgbtm
         self.__fontName = fontName
-        self.__bold = bold
-        self.__italics = italics
-        self.__underlining = underlining
+        self.__bold = EnumFill(bold)
+        self.__italics = EnumFill(italics)
+        self.__underlining = EnumFill(underlining)
         self.__subText = subText
         self.__superText = superText
         self.__textSize = textSize
@@ -340,10 +377,12 @@ Methods
 
     @bold.setter
     def bold(self, b):
-        if b is True or b is False:
-            self.__bold = b
-        else:
-            raise ValueError
+        try:
+            if b is not None:
+                self.__bold = EnumFill(b)
+        except ValueError:
+            print(
+                "You must use one of this state: NO_APPLY = 0 ; APPLY_TO_ALL_ELEMENTS = 1 ; APPLY_TO_SOME_ELEMENTS = 2; IS_UNKNOWN = None")
 
     @property
     def italics(self):
@@ -351,10 +390,12 @@ Methods
 
     @italics.setter
     def italics(self, i):
-        if i is True or i is False:
-            self.__italics = i
-        else:
-            raise ValueError
+        try:
+            if i is not None:
+                self.__bold = EnumFill(i)
+        except ValueError:
+            print(
+                "You must use one of this state: NO_APPLY = 0 ; APPLY_TO_ALL_ELEMENTS = 1 ; APPLY_TO_SOME_ELEMENTS = 2; IS_UNKNOWN = None")
 
     @property
     def underlining(self):
@@ -362,10 +403,12 @@ Methods
 
     @underlining.setter
     def underlining(self, u):
-        if u is True or u is False:
-            self.__underlining = u
-        else:
-            raise ValueError
+        try:
+            if u is not None:
+                self.__bold = EnumFill(u)
+        except ValueError:
+            print(
+                "You must use one of this state: NO_APPLY = 0 ; APPLY_TO_ALL_ELEMENTS = 1 ; APPLY_TO_SOME_ELEMENTS = 2; IS_UNKNOWN = None")
 
     @property
     def subText(self):
