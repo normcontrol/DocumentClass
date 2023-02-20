@@ -13,7 +13,6 @@ Repository describing unified classes representing the structural elements of a 
 from Paragraph import Paragraph
 from helpers.EnumFill import EnumFill
 
-
 para = Paragraph(text=" 123 ", indent=" 1", lineSpacing=1, fontName=" 123", textSize='12',
               nochangeFontName=True, nochangeTextSize=False,
               alignment=None, mrgrg=None, mrglf=None, mrgtop=None, mrgbtm=None, bold=None,
