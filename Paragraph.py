@@ -1,5 +1,5 @@
 import re
-from EnumFill import EnumFill
+from helpers.EnumFill import EnumFill
 from typing import Union
 
 
